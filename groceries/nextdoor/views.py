@@ -1,5 +1,6 @@
 import random
 from django.core.mail import send_mail
+from rest_framework import serializers
 from .serializers import SendOtpSerializer, VerifyOtpSerializer
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -10,7 +11,7 @@ def generate_otp():
 
 @csrf_exempt
 def send_otp(request):
-    if request.method == 'POST':
+    if request.method == 'POST':#post method
         email = request.POST.get('email')
         try:
             user = User.objects.get(email=email)

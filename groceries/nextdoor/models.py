@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.db import models
-
 class User(models.Model):
     mobile_number = models.CharField(max_length=15, unique=True)
     otp = models.CharField(max_length=6, blank=True, null=True)
