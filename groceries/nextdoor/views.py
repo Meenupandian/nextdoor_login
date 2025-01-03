@@ -10,7 +10,7 @@ def generate_otp():
 
 @csrf_exempt
 def send_otp(request):
-    if request.method == 'POST':
+    if request.method == 'POST':#post method
         email = request.POST.get('email')
         try:
             user = User.objects.get(email=email)
